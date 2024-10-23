@@ -1,0 +1,22 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="MotoRide" class="bg-blue-600 text-white" />
+    
+    <GridLayout rows="*, auto">
+        <ContentView row="0">
+            <MapView id="map" latitude="{{ userLocation.latitude }}" 
+                     longitude="{{ userLocation.longitude }}" 
+                     zoom="15" />
+        </ContentView>
+        
+        <StackLayout row="1" class="p-4 bg-white">
+            <TextField hint="Where to?" tap="{{ showLocationSearch }}" 
+                      editable="false" class="p-3 bg-gray-100 rounded-lg" />
+            
+            <Button text="Request Motorcycle" tap="{{ requestRide }}" 
+                    class="bg-blue-600 text-white p-4 rounded-lg mt-3" />
+                    
+            <Label text="{{ status }}" class="text-center mt-2 text-gray-600" 
+                   visibility="{{ status ? 'visible' : 'collapsed' }}" />
+        </StackLayout>
+    </GridLayout>
+</Page>
